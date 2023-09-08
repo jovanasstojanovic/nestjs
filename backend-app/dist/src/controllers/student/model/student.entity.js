@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Student = void 0;
+const prisustvo_entity_1 = require("../../prisustvo/model/prisustvo.entity");
 const typeorm_1 = require("typeorm");
 let Student = class Student {
 };
@@ -26,6 +27,23 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Student.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Student.prototype, "ime", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Student.prototype, "prezime", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Student.prototype, "indeks", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => prisustvo_entity_1.Prisustvo, (prisustvo) => prisustvo.prisustvovao),
+    (0, typeorm_1.JoinColumn)({ name: 'prisustvo_id' }),
+    __metadata("design:type", Array)
+], Student.prototype, "prisustvovao", void 0);
 exports.Student = Student = __decorate([
     (0, typeorm_1.Entity)()
 ], Student);

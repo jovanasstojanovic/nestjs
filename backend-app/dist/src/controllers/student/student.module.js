@@ -11,18 +11,16 @@ const common_1 = require("@nestjs/common");
 const student_service_1 = require("./student.service");
 const student_controller_1 = require("./student.controller");
 const student_local_stategy_1 = require("./student-auth/student-local.stategy");
-const auth_service_1 = require("../../auth/auth.service");
-const profesor_service_1 = require("../profesor/profesor.service");
 const typeorm_1 = require("@nestjs/typeorm");
 const student_entity_1 = require("./model/student.entity");
-const profesor_entity_1 = require("../profesor/model/profesor.entity");
+const auth_module_1 = require("../../auth/auth.module");
 let StudentModule = class StudentModule {
 };
 exports.StudentModule = StudentModule;
 exports.StudentModule = StudentModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([student_entity_1.Student, profesor_entity_1.Profesor])],
-        providers: [auth_service_1.AuthService, student_service_1.StudentService, student_local_stategy_1.StudentLocalStrategy, profesor_service_1.ProfesorService],
+        imports: [typeorm_1.TypeOrmModule.forFeature([student_entity_1.Student]), auth_module_1.AuthModule],
+        providers: [student_service_1.StudentService, student_local_stategy_1.StudentLocalStrategy],
         controllers: [student_controller_1.StudentController]
     })
 ], StudentModule);

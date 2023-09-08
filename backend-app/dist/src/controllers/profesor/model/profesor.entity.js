@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Profesor = void 0;
+const predmet_entity_1 = require("../../predmet/model/predmet.entity");
 const typeorm_1 = require("typeorm");
 let Profesor = class Profesor {
 };
@@ -26,6 +27,18 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Profesor.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Profesor.prototype, "ime", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Profesor.prototype, "prezime", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => predmet_entity_1.Predmet, (predmet) => predmet.drzi),
+    __metadata("design:type", Array)
+], Profesor.prototype, "drzi", void 0);
 exports.Profesor = Profesor = __decorate([
     (0, typeorm_1.Entity)()
 ], Profesor);

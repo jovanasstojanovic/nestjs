@@ -12,14 +12,19 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const student_module_1 = require("./controllers/student/student.module");
 const profesor_module_1 = require("./controllers/profesor/profesor.module");
-const predmet_controller_1 = require("./controllers/predmet/predmet.controller");
+const prisustvo_module_1 = require("./controllers/prisustvo/prisustvo.module");
+const predmet_module_1 = require("./controllers/predmet/predmet.module");
+const cas_module_1 = require("./controllers/cas/cas.module");
+const typeorm_1 = require("@nestjs/typeorm");
+const typeorm_config_1 = require("../typeorm.config");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [student_module_1.StudentModule, profesor_module_1.ProfesorModule],
-        controllers: [app_controller_1.AppController, predmet_controller_1.PredmetController],
+        imports: [student_module_1.StudentModule, profesor_module_1.ProfesorModule, prisustvo_module_1.PrisustvoModule, predmet_module_1.PredmetModule, cas_module_1.CasModule, typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.typeOrmConfig), auth_module_1.AuthModule],
+        controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
 ], AppModule);
