@@ -8,15 +8,72 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfesorController = void 0;
 const common_1 = require("@nestjs/common");
+const profesor_service_1 = require("./profesor.service");
+const profesor_dto_1 = require("./models/profesor.dto");
 let ProfesorController = class ProfesorController {
-    constructor() { }
+    constructor(profesorService) {
+        this.profesorService = profesorService;
+    }
+    getProfesore() {
+        return this.profesorService.getAll();
+    }
+    getProfesor(id) {
+        return this.profesorService.getById(id);
+    }
+    addProfesor(dto) {
+        return this.profesorService.create(dto);
+    }
+    deleteProfesor(id) {
+        return this.profesorService.delete(id);
+    }
+    updateSong(id, dto) {
+        return this.profesorService.update(id, dto);
+    }
 };
 exports.ProfesorController = ProfesorController;
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ProfesorController.prototype, "getProfesore", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], ProfesorController.prototype, "getProfesor", null);
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [profesor_dto_1.ProfesorDTO]),
+    __metadata("design:returntype", void 0)
+], ProfesorController.prototype, "addProfesor", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)("id", common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], ProfesorController.prototype, "deleteProfesor", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)("id", common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, profesor_dto_1.ProfesorDTO]),
+    __metadata("design:returntype", void 0)
+], ProfesorController.prototype, "updateSong", null);
 exports.ProfesorController = ProfesorController = __decorate([
     (0, common_1.Controller)('profesor'),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [profesor_service_1.ProfesorService])
 ], ProfesorController);
 //# sourceMappingURL=profesor.controller.js.map

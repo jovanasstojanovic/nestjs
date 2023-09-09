@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PrisustvoModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const prisustvo_entity_1 = require("./model/prisustvo.entity");
+const prisustvo_entity_1 = require("./models/prisustvo.entity");
 const prisustvo_service_1 = require("./prisustvo.service");
 const prisustvo_controller_1 = require("./prisustvo.controller");
 let PrisustvoModule = class PrisustvoModule {

@@ -14,12 +14,40 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StudentService = void 0;
 const common_1 = require("@nestjs/common");
-const student_entity_1 = require("./model/student.entity");
+const student_entity_1 = require("./models/student.entity");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 let StudentService = class StudentService {
     constructor(studentRepository) {
         this.studentRepository = studentRepository;
+        this.list = [{
+                id: 0,
+                email: '',
+                password: '',
+                ime: '',
+                prezime: '',
+                indeks: 18417,
+                prisustvovao: []
+            }];
+    }
+    getAll() {
+        return this.studentRepository.find();
+    }
+    async getById(id) {
+        const options = {
+            where: { id: id },
+        };
+        return this.studentRepository.findOne(options);
+    }
+    async create(studentDTO) {
+        const student = this.studentRepository.create(studentDTO);
+        return await this.studentRepository.save(student);
+    }
+    async delete(id) {
+        return await this.studentRepository.delete(id);
+    }
+    async update(id, dto) {
+        return await this.studentRepository.update(id, dto);
     }
     async findByEmail(email) {
         const student = await this.studentRepository.findOne({ where: { email } });

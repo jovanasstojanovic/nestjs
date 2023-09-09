@@ -15,11 +15,44 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PredmetService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const predmet_entity_1 = require("./model/predmet.entity");
+const predmet_entity_1 = require("./models/predmet.entity");
 const typeorm_2 = require("typeorm");
 let PredmetService = class PredmetService {
     constructor(predmetRepository) {
         this.predmetRepository = predmetRepository;
+        this.list = [{
+                id: 0,
+                naziv: '',
+                drzi: {
+                    id: 0,
+                    email: '',
+                    password: '',
+                    ime: '',
+                    prezime: '',
+                    drzi: [],
+                },
+                ima: [],
+                evidentira: []
+            }];
+    }
+    getAll() {
+        return this.predmetRepository.find();
+    }
+    async getById(id) {
+        const options = {
+            where: { id: id },
+        };
+        return this.predmetRepository.findOne(options);
+    }
+    async create(predmetDTO) {
+        const predmet = this.predmetRepository.create(predmetDTO);
+        return await this.predmetRepository.save(predmet);
+    }
+    async delete(id) {
+        return await this.predmetRepository.delete(id);
+    }
+    async update(id, dto) {
+        return await this.predmetRepository.update(id, dto);
     }
 };
 exports.PredmetService = PredmetService;

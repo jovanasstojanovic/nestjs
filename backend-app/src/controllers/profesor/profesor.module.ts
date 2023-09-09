@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { ProfesorService } from './profesor.service';
 import { ProfesorController } from './profesor.controller';
 import { ProfesorLocalStrategy } from './profesor-auth/profesor-local.strategy';
-import { Profesor } from './model/profesor.entity';
+import { Profesor } from './models/profesor.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from 'src/auth/auth.module';
 

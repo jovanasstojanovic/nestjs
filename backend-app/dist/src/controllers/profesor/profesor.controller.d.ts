@@ -1,3 +1,11 @@
+import { ProfesorService } from './profesor.service';
+import { ProfesorDTO } from './models/profesor.dto';
 export declare class ProfesorController {
-    constructor();
+    private profesorService;
+    constructor(profesorService: ProfesorService);
+    getProfesore(): Promise<import("./models/profesor.entity").Profesor[]>;
+    getProfesor(id: number): Promise<import("./models/profesor.entity").Profesor>;
+    addProfesor(dto: ProfesorDTO): Promise<import("./models/profesor.entity").Profesor>;
+    deleteProfesor(id: number): Promise<import("typeorm").DeleteResult>;
+    updateSong(id: number, dto: ProfesorDTO): Promise<import("typeorm").UpdateResult>;
 }

@@ -15,11 +15,57 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PrisustvoService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const prisustvo_entity_1 = require("./model/prisustvo.entity");
+const prisustvo_entity_1 = require("./models/prisustvo.entity");
 const typeorm_2 = require("typeorm");
 let PrisustvoService = class PrisustvoService {
     constructor(prisustvoRepository) {
         this.prisustvoRepository = prisustvoRepository;
+        this.list = [{
+                id: 0,
+                prisustvovao: {
+                    id: 0,
+                    email: '',
+                    password: '',
+                    ime: '',
+                    prezime: '',
+                    indeks: 18417,
+                    prisustvovao: []
+                },
+                broj_odslusanih_casova: 0,
+                evidentira: {
+                    id: 0,
+                    naziv: '',
+                    drzi: {
+                        id: 0,
+                        email: '',
+                        password: '',
+                        ime: '',
+                        prezime: '',
+                        drzi: [],
+                    },
+                    ima: [],
+                    evidentira: []
+                }
+            }];
+    }
+    getAll() {
+        return this.prisustvoRepository.find();
+    }
+    async getById(id) {
+        const options = {
+            where: { id: id },
+        };
+        return this.prisustvoRepository.findOne(options);
+    }
+    async create(prisustvoDTO) {
+        const prisustvo = this.prisustvoRepository.create(prisustvoDTO);
+        return await this.prisustvoRepository.save(prisustvo);
+    }
+    async delete(id) {
+        return await this.prisustvoRepository.delete(id);
+    }
+    async update(id, dto) {
+        return await this.prisustvoRepository.update(id, dto);
     }
 };
 exports.PrisustvoService = PrisustvoService;

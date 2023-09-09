@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Predmet } from './model/predmet.entity';
+import { Predmet } from './models/predmet.entity';
 import { PredmetService } from './predmet.service';
 import { PredmetController } from './predmet.controller';
 

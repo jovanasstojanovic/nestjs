@@ -12,8 +12,8 @@ const auth_service_1 = require("./auth.service");
 const profesor_service_1 = require("../controllers/profesor/profesor.service");
 const student_service_1 = require("../controllers/student/student.service");
 const typeorm_1 = require("@nestjs/typeorm");
-const student_entity_1 = require("../controllers/student/model/student.entity");
-const profesor_entity_1 = require("../controllers/profesor/model/profesor.entity");
+const student_entity_1 = require("../controllers/student/models/student.entity");
+const profesor_entity_1 = require("../controllers/profesor/models/profesor.entity");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;

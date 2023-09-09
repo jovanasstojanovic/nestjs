@@ -12,7 +12,7 @@ const student_service_1 = require("./student.service");
 const student_controller_1 = require("./student.controller");
 const student_local_stategy_1 = require("./student-auth/student-local.stategy");
 const typeorm_1 = require("@nestjs/typeorm");
-const student_entity_1 = require("./model/student.entity");
+const student_entity_1 = require("./models/student.entity");
 const auth_module_1 = require("../../auth/auth.module");
 let StudentModule = class StudentModule {
 };

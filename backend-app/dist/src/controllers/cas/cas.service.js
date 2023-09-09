@@ -15,11 +15,49 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CasService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const cas_entity_1 = require("./model/cas.entity");
+const cas_entity_1 = require("./models/cas.entity");
 const typeorm_2 = require("typeorm");
 let CasService = class CasService {
     constructor(casRepository) {
         this.casRepository = casRepository;
+        this.list = [{
+                id: 0,
+                sifra: '',
+                prijava_do: new Date("2023-09-15T14:30:00Z"),
+                ima: {
+                    id: 0,
+                    naziv: '',
+                    drzi: {
+                        id: 0,
+                        email: '',
+                        password: '',
+                        ime: '',
+                        prezime: '',
+                        drzi: [],
+                    },
+                    ima: [],
+                    evidentira: []
+                }
+            }];
+    }
+    getAll() {
+        return this.casRepository.find();
+    }
+    async getById(id) {
+        const options = {
+            where: { id: id },
+        };
+        return this.casRepository.findOne(options);
+    }
+    async create(casDTO) {
+        const cas = this.casRepository.create(casDTO);
+        return await this.casRepository.save(cas);
+    }
+    async delete(id) {
+        return await this.casRepository.delete(id);
+    }
+    async update(id, dto) {
+        return await this.casRepository.update(id, dto);
     }
 };
 exports.CasService = CasService;

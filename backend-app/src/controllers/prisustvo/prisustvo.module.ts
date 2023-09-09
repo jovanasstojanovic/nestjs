@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Prisustvo } from './model/prisustvo.entity';
+import { Prisustvo } from './models/prisustvo.entity';
 import { PrisustvoService } from './prisustvo.service';
 import { PrisustvoController } from './prisustvo.controller';
 

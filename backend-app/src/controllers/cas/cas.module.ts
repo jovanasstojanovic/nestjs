@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Cas } from './model/cas.entity';
+import { Cas } from './models/cas.entity';
 import { CasService } from './cas.service';
 import { CasController } from './cas.controller';
 
