@@ -64,9 +64,6 @@ let PrisustvoService = class PrisustvoService {
     async delete(id) {
         return await this.prisustvoRepository.delete(id);
     }
-    async update(id, dto) {
-        return await this.prisustvoRepository.update(id, dto);
-    }
 };
 exports.PrisustvoService = PrisustvoService;
 exports.PrisustvoService = PrisustvoService = __decorate([

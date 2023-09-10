@@ -7,6 +7,7 @@ import { Strategy } from 'passport-local'; // Dodajte import za Strategy
 import { StudentService } from './controllers/student/student.service';
 import { AuthService } from './auth/auth.service';
 import { ProfesorService } from './controllers/profesor/profesor.service';
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -70,9 +71,15 @@ async function bootstrap() {
   ));
 
 
-  app.enableCors({
-    origin:"http://localhost:4200",
-  })
+  const corsOptions: CorsOptions = {
+    origin: 'http://localhost:4200', // Postavite odgovarajuću adresu vašeg Angular klijenta
+    credentials: true,
+  };
+
+  app.enableCors(corsOptions);
+  
+  
+
   await app.listen(3000);
 }
 bootstrap();

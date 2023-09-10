@@ -32,9 +32,6 @@ let PrisustvoController = class PrisustvoController {
     deletePrisustvo(id) {
         return this.prisustvoService.delete(id);
     }
-    updateSong(id, dto) {
-        return this.prisustvoService.update(id, dto);
-    }
 };
 exports.PrisustvoController = PrisustvoController;
 __decorate([
@@ -64,14 +61,6 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], PrisustvoController.prototype, "deletePrisustvo", null);
-__decorate([
-    (0, common_1.Put)(':id'),
-    __param(0, (0, common_1.Param)("id", common_1.ParseIntPipe)),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, prisustvo_dto_1.PrisustvoDTO]),
-    __metadata("design:returntype", void 0)
-], PrisustvoController.prototype, "updateSong", null);
 exports.PrisustvoController = PrisustvoController = __decorate([
     (0, common_1.Controller)('prisustvo'),
     __metadata("design:paramtypes", [prisustvo_service_1.PrisustvoService])

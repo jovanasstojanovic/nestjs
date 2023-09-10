@@ -14,10 +14,23 @@ const common_1 = require("@nestjs/common");
 const student_service_1 = require("../controllers/student/student.service");
 const profesor_service_1 = require("../controllers/profesor/profesor.service");
 const bcrypt = require("bcrypt");
+const jwt_1 = require("@nestjs/jwt");
+const student_entity_1 = require("../controllers/student/models/student.entity");
 let AuthService = class AuthService {
-    constructor(studentService, profesorService) {
+    constructor(jwtService, studentService, profesorService) {
+        this.jwtService = jwtService;
         this.studentService = studentService;
         this.profesorService = profesorService;
+    }
+    async login(user) {
+        const payload = { sub: user.id, email: user.email, role: user instanceof student_entity_1.Student ? 'student' : 'profesor' };
+        try {
+            const access_token = this.jwtService.sign(payload);
+            return { access_token };
+        }
+        catch (error) {
+            throw new Error('Greška prilikom kreiranja JWT tokena');
+        }
     }
     async validateStudent(email, password) {
         const student = await this.studentService.findByEmail(email);
@@ -48,7 +61,8 @@ let AuthService = class AuthService {
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [student_service_1.StudentService,
+    __metadata("design:paramtypes", [jwt_1.JwtService,
+        student_service_1.StudentService,
         profesor_service_1.ProfesorService])
 ], AuthService);
 //# sourceMappingURL=auth.service.js.map

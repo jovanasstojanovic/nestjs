@@ -61,7 +61,7 @@ export class PrisustvoService {
     return await this.prisustvoRepository.delete(id);
   }
 
-  public async update(id:number,dto:PrisustvoDTO){
-    return await this.prisustvoRepository.update(id,dto);
-  }
+  // public async update(id:number,dto:PrisustvoDTO){
+  //   return await this.prisustvoRepository.update(id,dto);
+  // }
 }

@@ -7,5 +7,4 @@ export declare class PrisustvoController {
     getPrisistvo(id: number): Promise<import("./models/prisustvo.entity").Prisustvo>;
     addPrisustvo(dto: PrisustvoDTO): Promise<import("./models/prisustvo.entity").Prisustvo>;
     deletePrisustvo(id: number): Promise<import("typeorm").DeleteResult>;
-    updateSong(id: number, dto: PrisustvoDTO): Promise<import("typeorm").UpdateResult>;
 }

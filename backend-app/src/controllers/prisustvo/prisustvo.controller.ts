@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post/*, Put*/ } from '@nestjs/common';
 import { PrisustvoService } from './prisustvo.service';
 import { PrisustvoDTO } from './models/prisustvo.dto';
 
@@ -31,8 +31,8 @@ export class PrisustvoController {
         return this.prisustvoService.delete(id);
     }
 
-    @Put(':id')
-    public updateSong(@Param("id", ParseIntPipe) id:number, @Body() dto:PrisustvoDTO){
-        return this.prisustvoService.update(id,dto);
-    }
+    // @Put(':id')
+    // public updateSong(@Param("id", ParseIntPipe) id:number, @Body() dto:PrisustvoDTO){
+    //     return this.prisustvoService.update(id,dto);
+    // }
 }

@@ -1,18 +1,20 @@
 <div class="login-container">
-    <h2>Log In</h2>
-    <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" [(ngModel)]="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" [(ngModel)]="password" required>
-        </div>
-        <button type="submit">Log In</button>
-    </form>
+    <mat-form-field>
+        <input matInput placeholder="Email" [(ngModel)]="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Password" [(ngModel)]="password">
+    </mat-form-field>
+    <div class="user-type">
+        <label>
+            <input type="radio" [(ngModel)]="userType" value="student">
+            Student
+        </label>
+        <label>
+            <input type="radio" [(ngModel)]="userType" value="profesor">
+            Profesor
+        </label>
+    </div>
+    <br>
+    <button mat-raised-button color="primary" (click)="submit()">Submit</button>
 </div>
-
-
-<!-- <button routerLink="/student">Idi na Student Stranu</button>
-<button routerLink="/profesor">Idi na Profesor Stranu</button> -->

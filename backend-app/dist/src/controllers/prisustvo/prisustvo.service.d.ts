@@ -9,5 +9,4 @@ export declare class PrisustvoService {
     getById(id: number): Promise<Prisustvo>;
     create(prisustvoDTO: PrisustvoDTO): Promise<Prisustvo>;
     delete(id: number): Promise<import("typeorm").DeleteResult>;
-    update(id: number, dto: PrisustvoDTO): Promise<import("typeorm").UpdateResult>;
 }

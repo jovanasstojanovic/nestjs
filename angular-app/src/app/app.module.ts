@@ -7,6 +7,10 @@ import { StudentStranaComponent } from './components/student-strana/student-stra
 import { ProfesorStranaComponent } from './components/profesor-strana/profesor-strana.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,10 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatRadioModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
