@@ -2,7 +2,7 @@
 import { Module } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { StudentController } from './student.controller';
-import { StudentLocalStrategy } from './student-auth/student-local.stategy';
+import { StudentLocalStrategy } from '../../auth/student-auth/student-local.stategy';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Student } from './models/student.entity';
 import { AuthModule } from 'src/auth/auth.module';

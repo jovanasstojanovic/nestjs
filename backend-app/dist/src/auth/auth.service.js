@@ -29,7 +29,7 @@ let AuthService = class AuthService {
             return { access_token };
         }
         catch (error) {
-            throw new Error('Greška prilikom kreiranja JWT tokena');
+            throw new Error(error);
         }
     }
     async validateStudent(email, password) {

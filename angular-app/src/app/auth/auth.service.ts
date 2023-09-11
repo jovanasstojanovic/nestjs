@@ -33,14 +33,12 @@ export class AuthService {
     return this.http
       .post<{ access_token: string }>(environment.api+'/auth/login/student', { email, password })
       .pipe(
-        tap((response) => {
-          // Čuvanje JWT tokena na klijentskoj strani (primer koristi localStorage)
-          localStorage.setItem('token', response.access_token);
-        }),
+        // tap((response) => {
+        //   localStorage.setItem('token', response.access_token);
+        // }),
       
       catchError((error) => {
         console.error('Greška pri slanju zahteva:', error);
-        // Povratna vrednost u slučaju greške
         return of(null); // ili bilo koja druga povratna vrednost
       })
       );

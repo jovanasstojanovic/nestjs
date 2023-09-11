@@ -16,48 +16,42 @@ export class AuthService {
     private readonly profesorService: ProfesorService,
   ) {}
 
-  async login(user: Student | Profesor) {
-  const payload = { sub: user.id, email: user.email, role: user instanceof Student ? 'student' : 'profesor' };
-  try {
-    const access_token = this.jwtService.sign(payload);
-    return { access_token };
-  } catch (error) {
-    // Rukovanje greškom prilikom kreiranja tokena
-    throw new Error('Greška prilikom kreiranja JWT tokena');
+//   async login(user: Student | Profesor) {
+//   const payload = { sub: user.id, email: user.email, role: user instanceof Student ? 'student' : 'profesor' };
+//   try {
+//     const access_token = this.jwtService.sign(payload);
+//     return { access_token };
+//   } catch (error) {
+//     // Rukovanje greškom prilikom kreiranja tokena
+//     throw new Error(error);
+//   }
+// }
+
+    async login(user: any) {
+    const payload = { username: user.username, sub: user.userId };
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
   }
-}
 
-
-  async validateStudent(email: string, password: string): Promise<any> {
+  async validateStudent(email: string, pass: string): Promise<any> {
     const student = await this.studentService.findByEmail(email);
 
-    if (!student) {
-      return null; // Student sa ovim emailom ne postoji
+    if (student && student.password === pass) {
+      const { password, ...result } = student;
+      return result;
     }
-
-    const isPasswordValid = await this.validatePassword(password, student.password);
-
-    if (!isPasswordValid) {
-      return null; // Neispravna lozinka
-    }
-
-    return student; // Vraćamo studenta ako su korisnički podaci ispravni
+    return null; // Vraćamo studenta ako su korisnički podaci ispravni
   }
 
-  async validateProfesor(email: string, password: string): Promise<any> {
+  async validateProfesor(email: string, pass: string): Promise<any> {
     const profesor = await this.profesorService.findByEmail(email);
 
-    if (!profesor) {
-      return null; // Profesor sa ovim emailom ne postoji
+    if (profesor && profesor.password === pass) {
+      const { password, ...result } = profesor;
+      return result;
     }
-
-    const isPasswordValid = await this.validatePassword(password, profesor.password);
-
-    if (!isPasswordValid) {
-      return null; // Neispravna lozinka
-    }
-
-    return profesor; // Vraćamo profesora ako su korisnički podaci ispravni
+    return null; // Vraćamo profesora ako su korisnički podaci ispravni
   }
 
   async validatePassword(password: string, hashedPassword: string): Promise<boolean> {
