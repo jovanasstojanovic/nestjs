@@ -1,0 +1,71 @@
+.pick-container{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.container{
+    display: flex;
+    margin: 1vw;
+    margin-bottom: 0;
+}
+
+.card-container {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    /* height: 100vh; */
+    
+    /* Visina ekrana */
+    margin-bottom: 2%;
+}
+
+.prisustva-container{
+    background-color: white;
+    height: 90vh;
+}
+
+.slect-container{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab-container{
+    margin-left: 2vw;
+    height: 93vh;
+    width: 80%;
+    color:black;
+    background-color: #c2185c2a;
+    border-radius: 5px;
+}
+
+.zakazivanje-container{
+    
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    
+}
+
+
+.statistika-container{
+    background-color: white;
+        flex-direction: column;
+        align-items: center;
+        height: 87vh;
+
+}
+.zakazivanje-form{
+    display: flex;
+    margin-top: 5%;
+    flex-direction: column;
+    /* background-color: #c2185c50; */
+    padding: 5%;
+    padding-bottom: 7%;
+    border-radius: 5px;
+}
