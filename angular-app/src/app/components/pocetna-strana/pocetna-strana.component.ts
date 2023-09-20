@@ -11,12 +11,12 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
 export class PocetnaStranaComponent {
 
 
-  constructor(private router: Router,private authService: AuthenticationService) {} // Inject HttpClient servis
+  constructor(private router: Router,private authService: AuthenticationService) {}
 
 
   email: string = '';
   password: string = '';
-  userType: string = 'student'; // Default value
+  userType: string = 'student'; 
   resStudent:any;
   resProfesor:any;
 

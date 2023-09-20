@@ -13,7 +13,7 @@ export class Predmet {
   naziv: string;
 
   @ManyToOne(() => Profesor, (profesor) => profesor.drzi)
-  @JoinColumn({ name: 'profesor_id' }) // Dodajte @JoinColumn za kontrolu stranog ključa
+  @JoinColumn({ name: 'profesor_id' })
   drzi: Profesor;
 
   @OneToMany(() => Cas, (cas) => cas.ima)

@@ -14,10 +14,9 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = localStorage.getItem('jwtToken'); // Uzmite JWT token iz lokalnog skladišta
+    const token = localStorage.getItem('jwtToken'); 
 
     if (token) {
-      // Dodajte JWT token u zaglavlje zahtjeva
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`,

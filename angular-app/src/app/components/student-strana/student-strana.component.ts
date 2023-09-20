@@ -13,7 +13,7 @@ import { PrisustvoService } from 'src/app/services/prisustvo/prisustvo.service';
 export class StudentStranaComponent {
 
   currentUser:any;
-  unos: string = ''; // Inicijalizujte unos praznim stringom
+  unos: string = ''; 
   cas:any;
   predmet:any;
   prisustvo:any;

@@ -23,6 +23,6 @@ export class Student {
   indeks: number;
 
   @OneToMany(() => Prisustvo, (prisustvo) => prisustvo.prisustvovao)
-  @JoinColumn({ name: 'prisustvo_id' }) // Dodajte @JoinColumn za kontrolu stranog ključa
+  @JoinColumn({ name: 'prisustvo_id' }) 
   prisustvovao: Prisustvo[];
 }

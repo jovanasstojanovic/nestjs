@@ -53,10 +53,7 @@ export class PrisustvoService {
         }
       });
 
-      // Sortiranje po cas_id u rastućem redosledu
       azuriraniCasovi.sort((a, b) => a.cas_id - b.cas_id);
-
-      // Postavljanje cas_id na vrednost indeksa
       azuriraniCasovi.forEach((cas, indeks) => {
         cas.cas_id = indeks;
       });
@@ -67,34 +64,7 @@ export class PrisustvoService {
     })
   );
  
-  // return forkJoin([casoviSaBrojem$, sviCasovi$]).pipe(
-  //   map(([casoviSaBrojem, sviCasovi]) => {
-  //     console.log(casoviSaBrojem);
-  //     console.log('ovde',sviCasovi);
-  //     const azuriraniCasovi = [...sviCasovi];
-  //     console.log(azuriraniCasovi);
-
-  //     casoviSaBrojem.forEach(({ cas_id, casCount }) => {
-  //       const indeks = azuriraniCasovi.findIndex((cas) => cas.cas_id == cas_id);
-  //       console.log(indeks);
-  //       if (indeks !== -1) {
-  //         azuriraniCasovi[indeks].casCount = casCount;
-  //       }
-  //     });
-  //     console.log(azuriraniCasovi);
-
-  //     // Sortiranje po cas_id u rastućem redosledu
-  //     azuriraniCasovi.sort((a, b) => a.cas_id - b.cas_id);
-
-  //     // Postavljanje cas_id na vrednost indeksa
-  //     azuriraniCasovi.forEach((cas, indeks) => {
-  //       cas.cas_id = indeks;
-  //     });
-
-  //     console.log(azuriraniCasovi);
-  //     return azuriraniCasovi;
-  //   })
-  // );
+  
 }
 
   

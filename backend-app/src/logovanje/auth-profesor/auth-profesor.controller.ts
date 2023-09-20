@@ -2,7 +2,6 @@
 import { Controller, Get, Post, Req, Request, UseGuards } from '@nestjs/common';
 import { Request as ExpressRequest } from 'express';
 import { LocalProfesorAuthGuard } from './utils/LocalProfesorGuard';
-//import { AuthenticatedProfesorGuard } from './utils/AuthenticatedProfesorGuard';
 import { AuthProfesorService } from './auth-profesor.service';
 
 @Controller('auth-profesor')
@@ -21,7 +20,6 @@ export class AuthProfesorController {
         this.authProfesorService.logoutProfesor();
     }
 
-    //@UseGuards(AuthenticatedProfesorGuard)
     @Get('status')
     async getAuthStatus(@Req() req: ExpressRequest){
         return req.user;

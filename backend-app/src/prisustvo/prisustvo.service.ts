@@ -9,36 +9,6 @@ import { PrisustvoDTO } from './models/prisustvo.dto';
 export class PrisustvoService {
     constructor(@InjectRepository(Prisustvo) private prisustvoRepository:Repository<Prisustvo>){}
 
-    // list:Prisustvo[]=[{
-    //     id: 0,
-    //     prisustvovao: 
-    //         {
-    //             id:0,
-    //             email:'',
-    //             password:'',
-    //             ime:'',
-    //             prezime:'',
-    //             indeks:18417,
-    //             prisustvovao:[]
-    //         },
-    //     broj_odslusanih_casova: 0,
-    //     evidentira: 
-    //         {
-    //             id: 0,
-    //             naziv: '',
-    //             drzi: 
-    //                 {
-    //                     id: 0,
-    //                     email: '',
-    //                     password: '',
-    //                     ime: '',
-    //                     prezime: '',
-    //                     drzi: [],
-    //                 },
-    //             ima: [],
-    //             evidentira: []
-    //         }
-    // }];
 
   public getAll(){
     return this.prisustvoRepository.find();
@@ -60,7 +30,6 @@ export class PrisustvoService {
     return await this.prisustvoRepository.delete(id);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async update(id:number){
     
         const prisustvo = await this.getById(id);
@@ -75,7 +44,6 @@ export class PrisustvoService {
   }
 
   async pronadjiPrisustvo(studentId: number, predmetId: number): Promise<Prisustvo | null> {
-    // Pretražite prisustvo na osnovu ID studenta i ID predmeta
     const prisustvo = await this.prisustvoRepository.findOne({
       where: {
         prisustvovao: { id: studentId },

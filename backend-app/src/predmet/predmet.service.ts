@@ -9,22 +9,6 @@ import { Predmet } from './models/predmet.entity';
 export class PredmetService {
     constructor(@InjectRepository(Predmet) private predmetRepository:Repository<Predmet>){}
 
-    // list:Predmet[]=[{
-    //     id: 0,
-    //     naziv: '',
-    //     drzi: 
-    //         {
-    //             id: 0,
-    //             email: '',
-    //             password: '',
-    //             ime: '',
-    //             prezime: '',
-    //             drzi: [],
-    //         },
-    //     ima: [],
-    //     evidentira: []
-    // }];
-
   public getAll(){
     return this.predmetRepository.find();
   }

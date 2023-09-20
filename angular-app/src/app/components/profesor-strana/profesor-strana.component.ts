@@ -35,12 +35,11 @@ export class ProfesorStranaComponent implements OnInit{
     console.log(state);
     if (state) {
       localStorage.setItem('currentState', JSON.stringify(state));
-      console.log(state['key']); // Ovde možete pristupiti prosleđenim podacima
+      console.log(state['key']); 
       this.currentUser=this.authService.submitProfesorEmail(state['key']);
       console.log(this.currentUser);
       localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     } else {
-      // Ako nema prosleđenih podataka, pokušajte ih izvući iz lokalnog skladišta
       const storedUser = localStorage.getItem('currentUser');
       if (storedUser) {
         this.currentUser = JSON.parse(storedUser);

@@ -9,27 +9,6 @@ import { CasDTO } from './models/cas.dto';
 export class CasService {
     constructor(@InjectRepository(Cas) private casRepository:Repository<Cas>){}
 
-    // list:Cas[]=[{
-    //   id: 0,
-    //   sifra: '',
-    //   prijava_do: new Date("2023-09-15T14:30:00Z"),
-    //   ima: 
-    //       {
-    //           id: 0,
-    //           naziv: '',
-    //           drzi: 
-    //               {
-    //                   id: 0,
-    //                   email: '',
-    //                   password: '',
-    //                   ime: '',
-    //                   prezime: '',
-    //                   drzi: [],
-    //               },
-    //           ima: [],
-    //           evidentira: []
-    //       }
-    // }];
 
   public getAll(){
     return this.casRepository.find();

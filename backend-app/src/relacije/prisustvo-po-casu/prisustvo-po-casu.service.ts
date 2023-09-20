@@ -40,13 +40,10 @@ export class PrisustvoPoCasuService {
       //console.log(casovi);
     const casoviSaBrojem = casovi.map(({ cas_id, casCount }) => ({
     cas_id,
-    casCount: parseInt(casCount), // ili parseFloat za decimalne vrednosti
+    casCount: parseInt(casCount), 
   }));
 
   console.log(casoviSaBrojem);
   return casoviSaBrojem;
   }
 }
-
-      //.select(['cas.id', 'cas.sifra', 'cas.prijava_do', 'cas.predmet_id'])
-      //.leftJoin('cas.prisustvoPoCasu', 'prisustvo_po_casu')
